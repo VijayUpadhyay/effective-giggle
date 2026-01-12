@@ -10,6 +10,20 @@ load_dotenv()
 llm = ChatGroq(model=os.environ.get("GROQ_LLM_MODEL"), temperature=0.0)
 system_role = {"role": "system", "content": "You are a helpful assistant"}
 
+# 1. Initialize session state for user name
+if "user_name" not in st.session_state:
+    st.session_state.user_name = None
+
+# 2. Show name input if not logged in
+if st.session_state.user_name is None:
+    with st.form("login_form"):
+        name = st.text_input("Enter your name to start chatting:")
+        submit = st.form_submit_button("Start Chat")
+
+        if submit and name:
+            st.session_state.user_name = name.title()
+            st.rerun()  # Refresh to hide form and show chat
+
 def get_user_name() -> str:
     user_name = st.session_state.get("user_name")
     if not user_name:
@@ -21,7 +35,6 @@ def get_user_name() -> str:
 
     st.session_state.user_name = user_name.title()
     return user_name.title()
-
 
 
 client_name = get_user_name()
