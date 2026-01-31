@@ -7,7 +7,7 @@ A chatbot application built using an **LLM model** and a **Streamlit UI**. This 
 
 ## 🌐 Live Demo
 The chatbot is hosted and available here:  
-👉 [Effective Giggle](https://effective-giggle.streamlit.appeting)
+👉 [Effective Giggle](https://effective-giggle.streamlit.app)
 
 - **Interactive Chat**: Start chatting instantly after the greeting.
 - **Streamlit UI**: Clean and responsive interface for smooth user experience.
